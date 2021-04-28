@@ -6,5 +6,5 @@ font-weight: bold;
 font-size:22px;
 color: #000 ;
 margin-top: 25px;
-/* padding:0 20px; */
+padding:0 20px;
 `;

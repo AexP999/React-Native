@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, SectionList} from 'react-native';
 import styled from 'styled-components/native';
 import {Appointment, SectionTitle} from './components';
+import {Ionicons} from '@expo/vector-icons';
 
 export default function App () {
   const DATA = [
@@ -111,10 +112,41 @@ export default function App () {
           <SectionTitle>{title}</SectionTitle>
         )}
       />
+      <PlusButton
+        style={{
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.9,
+          shadowRadius: 5,
+          elevation: 8,
+        }}
+      >
+        <Ionicons name="ios-add" size={36} color="white" />
+      </PlusButton>
 
     </Container>
   );
 }
+
+const PlusButton = styled.TouchableOpacity`
+position: absolute;
+right:25px;
+bottom:25px;
+align-items:center;
+justify-content:center;
+border-radius: 50px;
+background: #2a86ff;
+width: 64px;
+height: 64px;
+/* shadow-color:#2A86FF;
+shadow-radius: 4;
+shadow-opacity: 0.8;
+elevation: 10; */
+
+`;
 
 const Container = styled.View`
     flex: 1;
