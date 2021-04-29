@@ -102,13 +102,12 @@ const DATA = [
 ];
 
 function HomeScreen (navigation) {
-  console.log (navigation);
   return (
     <Container>
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => index}
-        renderItem={({item}) => <Appointment item={item} {...navigation} />}
+        renderItem={({item}) => <Appointment {...item} {...navigation} />}
         renderSectionHeader={({section: {title}}) => (
           <SectionTitle>{title}</SectionTitle>
         )}

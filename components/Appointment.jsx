@@ -5,9 +5,8 @@ import {HomeScreen, PatientScreen} from '../screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-const Appointment = ({item, navigation}) => {
-  console.log(navigation);
-  const {user, diagnosis, active, time} = item
+const Appointment = ({user, diagnosis, active, time, navigation: {navigate}}) => {
+
   return (
 
     <GroupItem>
@@ -18,9 +17,7 @@ const Appointment = ({item, navigation}) => {
       />
       <View style={{flex: 1}}>
         <Button title="Go to Details"
-          onPress={() => {navigation.navigate('PatientCart')}} />
-        {/* <FullName title="Go to Details"
-          onPress={() => {navigation.navigate('PatientScreen')}}>{user.fullname}</FullName> */}
+          onPress={() => {navigate('PatientCart')}} />
         <GrayText>{diagnosis}</GrayText>
       </View>
       <GroupDate active={active}>{time}</GroupDate>
