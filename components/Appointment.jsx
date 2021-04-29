@@ -1,9 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-import {Text, View, SectionList} from 'react-native';
+import styled from 'styled-components/native';
+import {Text, View, SectionList, Button} from 'react-native';
+import {HomeScreen, PatientScreen} from '../screens';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const Group = ({user, diagnosis, active, time}) => {
-
+const Appointment = ({item, navigation}) => {
+  console.log(navigation);
+  const {user, diagnosis, active, time} = item
   return (
 
     <GroupItem>
@@ -13,7 +17,10 @@ const Group = ({user, diagnosis, active, time}) => {
         }}
       />
       <View style={{flex: 1}}>
-        <FullName>{user.fullname}</FullName>
+        <Button title="Go to Details"
+          onPress={() => {navigation.navigate('PatientCart')}} />
+        {/* <FullName title="Go to Details"
+          onPress={() => {navigation.navigate('PatientScreen')}}>{user.fullname}</FullName> */}
         <GrayText>{diagnosis}</GrayText>
       </View>
       <GroupDate active={active}>{time}</GroupDate>
@@ -21,7 +28,7 @@ const Group = ({user, diagnosis, active, time}) => {
   )
 }
 
-Group.defaultProps = {
+Appointment.defaultProps = {
   groupTitle: "Untitled",
   items: []
 }
@@ -46,7 +53,6 @@ color:#8b979f
 
 const FullName = styled.Text`
 font-size:16px;
-
 `;
 
 const GroupItem = styled.TouchableOpacity`
@@ -66,4 +72,4 @@ margin-right:15px;
 
 
 
-export default Group;
+export default Appointment;
