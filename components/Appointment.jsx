@@ -49,7 +49,8 @@ color:#8b979f
 `;
 
 const FullName = styled.Text`
-font-size:16px;
+font-size:22px;
+color:blue
 `;
 
 const GroupItem = styled.TouchableOpacity`
