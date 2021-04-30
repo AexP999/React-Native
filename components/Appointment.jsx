@@ -16,8 +16,8 @@ const Appointment = ({user, diagnosis, active, time, navigation: {navigate}}) =>
         }}
       />
       <View style={{flex: 1}}>
-        <Button title="Go to Details"
-          onPress={() => {navigate('PatientCart')}} />
+        <FullName onPress={() => {navigate('PatientCart')}}>{user.fullname}</FullName>
+        {/* onPress={() => {navigate('PatientCart')}} /> */}
         <GrayText>{diagnosis}</GrayText>
       </View>
       <GroupDate active={active}>{time}</GroupDate>
