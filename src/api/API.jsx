@@ -6,12 +6,8 @@ const axiosInstance = axios.create({
 });
 
 
-export const getUsers = async () => {
-  const {data} = await axiosInstance('/users')
-  return data
-}
+export async function getPosts() {
+  const {data} = await axiosInstance('/posts')
 
-export const getUser = async (id) => {
-  const {data} = await axiosInstance(`/users/${id}`)
   return data
 }
