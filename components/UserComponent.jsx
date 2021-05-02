@@ -14,6 +14,7 @@ function UserComponent({item, nav}) {
   );
 }
 
+
 const UserNameST = styled.Text`
   font-size:20px;
   color:red;
