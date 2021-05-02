@@ -4,7 +4,7 @@ import {getUsers, getUser} from '../src/api/API';
 import UserComponent from './UserComponent';
 import styled from 'styled-components/native'
 
-function UsersComponent() {
+function UsersComponent({navigation}) {
 
   const [users, setUsers] = useState([]);
 
@@ -21,7 +21,7 @@ function UsersComponent() {
     <View>
       <FlatList
         data={users}
-        renderItem={({item}) => <UserComponent item={item} />}
+        renderItem={({item}) => <UserComponent item={item} nav={navigation} />}
         keyExtractor={item => '' + item.id} />
 
     </View>

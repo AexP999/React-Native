@@ -3,24 +3,35 @@ import React, {useEffect, useState} from 'react';
 import {getUsers, getUser} from '../src/api/API';
 import styled from 'styled-components/native'
 
-function UserComponent(props) {
-  const {item} = props
+function UserComponent({item, nav}) {
+  const {name, email} = item
 
   return (
-    <View>
-      <userNameST >name: {item.name}</userNameST>
-      <Text>email: {item.email}</Text>
-    </View>
+    <BlockUser>
+      <UserNameST onPress={() => {nav.navigate('UserDetails', {data: item})}} >name: {name}</UserNameST>
+      <EmailST onPress={() => {nav.navigate('Posts')}}>email: {email}</EmailST>
+    </BlockUser >
   );
 }
 
-const userNameST = styled.Text`
-  font-size:50px;
-  border:1px solid black;
+const UserNameST = styled.Text`
+  font-size:20px;
   color:red;
-  margin:20px;
-  padding:20px
+ 
   `
+const EmailST = styled.Text`
+  font-size:20px;
+  color:blue;
+
+  `
+const BlockUser = styled.View`
+  font-size:20px;
+  border:1px solid black;
+
+  margin:5px 10px ;
+  padding:10px
+  `
+
 
 
 export default UserComponent;
