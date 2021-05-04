@@ -16,18 +16,19 @@ export default function App () {
 
       <BottomTabNavigator.Navigator
         tabBarOptions={{
-          tabStyle: {
-            justifyContent: 'center',
-            alignItems: 'center',
+          activeBackgroundColor: '#aa3423',
+          labelStyle: {
+            fontSize: 28,
+            flex: 1,
           },
+          activeTintColor: 'white',
+          inactiveTintColor: 'blue',
+          inactiveBackgroundColor: 'lightblue',
         }}
       >
         <BottomTabNavigator.Screen name={'users'} component={UsersComponent} />
         <BottomTabNavigator.Screen name={'posts'} component={PostDrawer} />
-        <BottomTabNavigator.Screen
-          name={'UserDetails'}
-          component={UserDetailsComponent}
-        />
+
       </BottomTabNavigator.Navigator>
     </NavigationContainer>
   );
