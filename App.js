@@ -3,20 +3,32 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {View, Text, FlatList} from 'react-native';
 import UsersComponent from './components/UsersComponent';
-import PostComponent from './components/PostComponent';
+import PostsComponent from './components/PostsComponent';
+import PostDrawer from './components/PostDrawer';
 import UserDetailsComponent from './components/UserDetailsComponent';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const Stack = createStackNavigator ();
+const BottomTabNavigator = createBottomTabNavigator ();
 
 export default function App () {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name={'Users'} component={UsersComponent} />
-        <Stack.Screen name={'Posts'} component={PostComponent} />
-        <Stack.Screen name={'UserDetails'} component={UserDetailsComponent} />
 
-      </Stack.Navigator>
+      <BottomTabNavigator.Navigator
+        tabBarOptions={{
+          tabStyle: {
+            justifyContent: 'center',
+            alignItems: 'center',
+          },
+        }}
+      >
+        <BottomTabNavigator.Screen name={'users'} component={UsersComponent} />
+        <BottomTabNavigator.Screen name={'posts'} component={PostDrawer} />
+        <BottomTabNavigator.Screen
+          name={'UserDetails'}
+          component={UserDetailsComponent}
+        />
+      </BottomTabNavigator.Navigator>
     </NavigationContainer>
   );
 }

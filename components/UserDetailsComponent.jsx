@@ -9,12 +9,16 @@ function UserDetailsComponent({route, navigation}) {
 
   }, [])
   return (
-    <View>
+    <DetailsView>
       <Text>name: {data.name}</Text>
       <Text>username: {data.username}</Text>
       <Text>email: {data.email}</Text>
-    </View>
+    </DetailsView>
   );
 }
+
+const DetailsView = styled.View`
+padding-top:50px;
+`
 
 export default UserDetailsComponent;
