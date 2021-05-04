@@ -4,13 +4,45 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator ();
+// {initialRouteName: 'Patient'}
+// Расписание приема"
 
 export default function App () {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Расписание приема">
-        <Stack.Screen name={'Расписание приема'} component={HomeScreen} />
-        <Stack.Screen name={'PatientCart'} component={PatientScreen} />
+      <Stack.Navigator initialRouteName="Patient">
+        <Stack.Screen
+          name={'Расписание приемa'}
+          options={{
+            title: 'Пациенты',
+            headerStyle: {
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTintColor: '#2a86ff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 30,
+            },
+          }}
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          name={'PatientCart'}
+          options={{
+            title: 'Карта пациента',
+            headerStyle: {
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTintColor: '#2a86ff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 30,
+            },
+          }}
+          component={PatientScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

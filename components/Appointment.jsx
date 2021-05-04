@@ -1,24 +1,22 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {Text, View, SectionList, Button} from 'react-native';
-import {HomeScreen, PatientScreen} from '../screens';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import GreyText from './GreyText'
 
-const Appointment = ({user, diagnosis, active, time, navigation: {navigate}}) => {
+const Appointment = ({user, diagnosis, active, time, navigate}) => {
 
   return (
 
-    <GroupItem>
+    <GroupItem onPress={() => {navigate('PatientCart')}}>
       <Avatar
         source={{
           uri: user.avatar
         }}
       />
       <View style={{flex: 1}}>
-        <FullName onPress={() => {navigate('PatientCart')}}>{user.fullname}</FullName>
-        {/* onPress={() => {navigate('PatientCart')}} /> */}
-        <GrayText>{diagnosis}</GrayText>
+        <FullName >{user.fullname}</FullName>
+
+        <GreyText>{diagnosis}</GreyText>
       </View>
       <GroupDate active={active}>{time}</GroupDate>
     </GroupItem>
@@ -43,14 +41,10 @@ align-items: center;
 line-height: 28px;
 `;
 
-const GrayText = styled.Text`
-font-size:16px;
-color:#8b979f
-`;
 
 const FullName = styled.Text`
 font-size:22px;
-color:blue
+color:purple
 `;
 
 const GroupItem = styled.TouchableOpacity`
@@ -58,7 +52,8 @@ flex-direction: row;
 align-items:center;  
 padding:20px;
 border-bottom-width: 1px;
-border-bottom-color: #f3f3f3;
+border-bottom-color:#f3f3f3;
+background-color:#fff
 `;
 
 const Avatar = styled.Image`

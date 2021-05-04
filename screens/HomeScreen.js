@@ -101,15 +101,20 @@ const DATA = [
   },
 ];
 
-function HomeScreen (navigation) {
+function HomeScreen({navigation}) {
   return (
     <Container>
       <SectionList
+        style={{backgroundColor: 'white'}}
         sections={DATA}
         keyExtractor={(item, index) => index}
-        renderItem={({item}) => <Appointment {...item} {...navigation} />}
+        renderItem={({item}) => (
+          <Appointment {...item} navigate={navigation.navigate} />
+        )}
         renderSectionHeader={({section: {title}}) => (
-          <SectionTitle>{title}</SectionTitle>
+          <SectionTitle>
+            {title}
+          </SectionTitle>
         )}
       />
       <PlusButton
