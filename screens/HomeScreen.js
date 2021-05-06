@@ -14,6 +14,7 @@ const DATA = [
         active: true,
         user: {
           fullname: 'Джон Сильверов',
+          phone: '+38 067 2321223',
           avatar: 'http://avatarmaker.ru/img/11/1044/104363.jpg',
         },
       },
@@ -23,6 +24,7 @@ const DATA = [
         diagnosis: 'кариес',
         user: {
           fullname: 'Маня Попеску',
+          phone: '+38 067 23783279',
           avatar: 'https://bipbap.ru/wp-content/uploads/2017/05/VOLKI-krasivye-i-ochen-umnye-zhivotnye.jpg',
         },
       },
@@ -32,6 +34,7 @@ const DATA = [
         diagnosis: 'удаление 6 слева вверху',
         user: {
           fullname: 'Бари Алибасов',
+          phone: '+38 095 8304893',
           avatar: 'http://avatarmaker.ru/img/11/1044/104357.jpg',
         },
       },
@@ -44,7 +47,8 @@ const DATA = [
         time: '10:00',
         diagnosis: 'пульпит',
         user: {
-          fullname: 'Джон Сильверов',
+          fullname: 'Джек Смит',
+          phone: '+38 045 8394802',
           avatar: 'http://avatarmaker.ru/img/11/1044/104363.jpg',
         },
       },
@@ -53,7 +57,8 @@ const DATA = [
         time: '12:30',
         diagnosis: 'кариес',
         user: {
-          fullname: 'Маня Попеску',
+          fullname: 'Маша Загорулько',
+          phone: '+38 044 7364928',
           avatar: 'https://bipbap.ru/wp-content/uploads/2017/05/VOLKI-krasivye-i-ochen-umnye-zhivotnye.jpg',
         },
       },
@@ -62,7 +67,8 @@ const DATA = [
         time: '14:00',
         diagnosis: 'удаление 6 слева вверху',
         user: {
-          fullname: 'Бари Алибасов',
+          fullname: 'Борис Журавлев',
+          phone: '+38 073 5389923',
           avatar: 'http://avatarmaker.ru/img/11/1044/104357.jpg',
         },
       },
@@ -76,6 +82,7 @@ const DATA = [
         diagnosis: 'удаление зубного камня',
         user: {
           fullname: 'Омельян Любищенко',
+          phone: '+38 098 39376483',
           avatar: 'http://avatarmaker.ru/img/11/1041/104079.jpg',
         },
       },
@@ -84,7 +91,8 @@ const DATA = [
         time: '10:00',
         diagnosis: 'кариес б',
         user: {
-          fullname: 'Маня Попеску',
+          fullname: 'Людмила Нетудыхата',
+          phone: '+38 068 2836749',
           avatar: 'http://avatarmaker.ru/img/11/1044/104350.jpg',
         },
       },
@@ -94,6 +102,7 @@ const DATA = [
         diagnosis: 'удаление 3 слева вверху',
         user: {
           fullname: 'Нинель Капистка',
+          phone: '+38 098 2937473',
           avatar: 'http://avatarmaker.ru/img/11/1044/104353.jpg',
         },
       },
@@ -109,26 +118,13 @@ function HomeScreen({navigation}) {
         sections={DATA}
         keyExtractor={(item, index) => index}
         renderItem={({item}) => (
-          <Appointment {...item} navigate={navigation.navigate} />
+          <Appointment item={item} navigate={navigation.navigate} />
         )}
         renderSectionHeader={({section: {title}}) => (
-          <SectionTitle>
-            {title}
-          </SectionTitle>
+          <SectionTitle>{title}</SectionTitle>
         )}
       />
-      <PlusButton
-        style={{
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 4,
-          },
-          shadowOpacity: 0.9,
-          shadowRadius: 5,
-          elevation: 8,
-        }}
-      >
+      <PlusButton>
         <Ionicons name="ios-add" size={36} color="white" />
       </PlusButton>
 
@@ -146,17 +142,14 @@ border-radius: 50px;
 background: #2a86ff;
 width: 64px;
 height: 64px;
-/* shadow-color:#2A86FF;
-shadow-radius: 4;
-shadow-opacity: 0.8;
-elevation: 10; */
 
+box-shadow:1px 3px 7px black;
 `;
 
 const Container = styled.View`
     flex: 1;
     /* margin-top:30px; */
-    /* padding-left:20px; */
+    
     `;
 
 export default HomeScreen;

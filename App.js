@@ -4,13 +4,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator ();
-// {initialRouteName: 'Patient'}
-// Расписание приема"
 
 export default function App () {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Patient">
+      <Stack.Navigator initialRouteName="PatientCar">
         <Stack.Screen
           name={'Расписание приемa'}
           options={{

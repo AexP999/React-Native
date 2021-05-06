@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {Text, View, SectionList, Button} from 'react-native';
 import GreyText from './GreyText'
+import Badge from './Badge'
 
-const Appointment = ({user, diagnosis, active, time, navigate}) => {
+const Appointment = ({item, navigate}) => {
+  const {user, diagnosis, active, time} = item;
 
   return (
 
-    <GroupItem onPress={() => {navigate('PatientCart')}}>
+    <GroupItem onPress={() => {navigate('PatientCart', item)}}>
       <Avatar
         source={{
           uri: user.avatar
@@ -18,7 +20,7 @@ const Appointment = ({user, diagnosis, active, time, navigate}) => {
 
         <GreyText>{diagnosis}</GreyText>
       </View>
-      <GroupDate active={active}>{time}</GroupDate>
+      <Badge active={active}>{time}</Badge>
     </GroupItem>
   )
 }
@@ -28,18 +30,6 @@ Appointment.defaultProps = {
   items: []
 }
 
-const GroupDate = styled.Text`
-background :${props => (props.active ? '#2A86FF' : '#e9f5ff')};
-color :${props => (props.active ? '#fff' : '#4294ff')};
-border-radius:18px;
-font-size:14px;
-font-weight:bold;
-width: 70px;
-height: 32px;
-text-align: center;
-align-items: center;
-line-height: 28px;
-`;
 
 
 const FullName = styled.Text`

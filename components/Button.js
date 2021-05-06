@@ -2,15 +2,22 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
-export default function Button({children}) {
-  return <ButtonWrapper><ButtonText>{children}</ButtonText></ButtonWrapper>;
+export default function Button({children, color}) {
+  return (
+    <ButtonWrapper color={color}>
+      <ButtonText>{children}</ButtonText>
+    </ButtonWrapper>
+  );
 }
+Button.defaultProps = {
+  color: '#2A86ff',
+};
 
 const ButtonWrapper = styled.TouchableOpacity`
 display: flex;
 justify-content: center;
 align-items:center;
-background:#2A86ff;
+background:${props => props.color};
 border-radius:30px;
 height:45px;
 `;
