@@ -12,7 +12,7 @@ function UsersComponent({navigation}) {
     async function fetchData() {
       let users = await getUsers();
       setUsers([...users]);
-      console.log(users);
+      // console.log(users);
     }
     fetchData();
   }, []);

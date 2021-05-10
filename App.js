@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {View, Text, FlatList} from 'react-native';
 import UsersComponent from './components/UsersComponent';
 import PostsComponent from './components/PostsComponent';
+import CameraComponent from './components/CameraComponent';
 import PostDrawer from './components/PostDrawer';
 import UserDetailsComponent from './components/UserDetailsComponent';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -28,6 +29,11 @@ export default function App () {
       >
         <BottomTabNavigator.Screen name={'users'} component={UsersComponent} />
         <BottomTabNavigator.Screen name={'posts'} component={PostDrawer} />
+        <BottomTabNavigator.Screen
+          name={'camera'}
+          component={CameraComponent}
+          options={{unmountOnBlur: true}}
+        />
 
       </BottomTabNavigator.Navigator>
     </NavigationContainer>
