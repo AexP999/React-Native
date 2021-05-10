@@ -33,5 +33,3 @@ export default function App () {
     </NavigationContainer>
   );
 }
-
-//     <Stack.Screen name={'PatientCart'} component={PatientScreen} />
