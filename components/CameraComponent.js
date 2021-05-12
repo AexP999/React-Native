@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {Camera} from 'expo-camera';
+import * as MediaLibrary from 'expo-media-library';
 
 export default function componentName () {
-  let [type, setType] = useState (Camera.Constants.Type.back);
+  let [type, setType] = useState (Camera.Constants.Type.front);
   let [hasPermission, setHasPermission] = useState (null);
-  let [camer, setCamera] = useState (null);
+  let [camera, setCamera] = useState (null);
 
   useEffect (() => {
     (async () => {
@@ -24,9 +25,17 @@ export default function componentName () {
 
   async function takePicture () {
     if (hasPermission) {
-      await camera.takePictureAsync (null);
-      console.log (data);
+      let data = await camera.takePictureAsync (null);
+      // await MediaLibrary.saveToLibraryAsync (data.uri);
+      console.log (data.uri);
     }
+  }
+
+  function flipBack () {
+    setType (Camera.Constants.Type.back);
+  }
+  function flipFront () {
+    setType (Camera.Constants.Type.front);
   }
 
   return (
@@ -41,8 +50,20 @@ export default function componentName () {
           ref={r => setCamera (r)}
         />
         <Button title={'take picture'} onPress={takePicture} />
-        <Button color="purple" title={'flip back'} onPress={() => {}} />
-        <Button color="green" title={'flip front'} onPress={() => {}} />
+        <Button
+          color="purple"
+          title={'flip back'}
+          onPress={() => {
+            flipBack;
+          }}
+        />
+        <Button
+          color="green"
+          title={'flip front'}
+          onPress={() => {
+            flipFront;
+          }}
+        />
 
       </View>
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Modal, View, Text, FlatList, Pressable, StyleSheet} from 'react-native';
-import PostDrawer from './PostDrawer';
+// import PostDrawer from './PostDrawer';
 import styled from 'styled-components/native'
 
 
